@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vh;
+            min-height: 100vh;
+            background-image: linear-gradient(to bottom right, #EE2277, #99005A);
+        }
+
+        .wrap {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clock {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+            transform:scale(-1);
+            /* wtf */
+          
+
+        }
+
+        .clock::after {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .clock-inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            border-radius: 50%;
+            border: 5px solid white;
+        }
+
+        .clock-center {
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hand {
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(50% - 20px);
+            height: 6px;
+            transform-origin: left center;
+            border-radius: 999px;
+            transform: translateY(-50%);
+        }
+
+        .second {
+            opacity: 0.5;
+            height: 3px;
+            transform: translateY(-50%) rotate(-180deg);
+            transition: 0.1s ease-out;
+        }
+
+        .minute {
+            transform: translateY(-50%) rotate(-90deg);
+            transition: 0.4s ease-out;
+        }
+
+        .hour {
+            transform:  translateY(-50%) rotate(45deg);
+            width: calc(50% -  80px);
+            transition: 0.4s ease-out;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="clock">
+            <div class="clock-inner">
+                <div class="clock-center"></div>
+                <div class="hand second"></div>
+                <div class="hand minute"></div>
+                <div class="hand hour"></div>
+            </div>
+        </div>
+    </div>
+    <script src="clock.js"></script>
+</body>
+
+</html>
